@@ -300,7 +300,7 @@ class ExfiltrateFile(threading.Thread):
             self.jobid, os.path.basename(self.file_to_send), self.checksum)
         plugin_send_function(data)
 
-        time_to_sleep = randint(1, MAX_TIME_SLEEP)
+        time_to_sleep = randint(1000, MAX_TIME_SLEEP*1000) / 1000
         info("Sleeping for %s seconds" % time_to_sleep)
         time.sleep(time_to_sleep)
 
@@ -326,7 +326,7 @@ class ExfiltrateFile(threading.Thread):
             plugin_send_function(data)
             packet_index = packet_index + 1
 
-            time_to_sleep = randint(1, MAX_TIME_SLEEP)
+            time_to_sleep = randint(1000, MAX_TIME_SLEEP*1000) / 1000
             display_message("Sleeping for %s seconds" % time_to_sleep)
             time.sleep(time_to_sleep)
 
